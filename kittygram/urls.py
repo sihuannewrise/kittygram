@@ -1,9 +1,10 @@
+from rest_framework.routers import SimpleRouter
 from django.urls import include, path
+from cats.views import CatViewSet
 
-from cats.views import cat_list
+router = SimpleRouter()
+router.register('cats', CatViewSet)
 
 urlpatterns = [
-   path('cats/', cat_list),
+    path('', include(router.urls)),
 ]
-
-
